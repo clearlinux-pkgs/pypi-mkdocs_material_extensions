@@ -4,22 +4,23 @@
 #
 Name     : pypi-mkdocs_material_extensions
 Version  : 1.0.3
-Release  : 1
+Release  : 2
 URL      : https://files.pythonhosted.org/packages/c1/6f/20b60ac8b314fd080dbab77b7a70ac3a283641a23914cb2346178875f501/mkdocs-material-extensions-1.0.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/c1/6f/20b60ac8b314fd080dbab77b7a70ac3a283641a23914cb2346178875f501/mkdocs-material-extensions-1.0.3.tar.gz
 Summary  : Extension pack for Python Markdown.
 Group    : Development/Tools
 License  : MIT
+Requires: pypi-mkdocs_material_extensions-license = %{version}-%{release}
 Requires: pypi-mkdocs_material_extensions-python = %{version}-%{release}
 Requires: pypi-mkdocs_material_extensions-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : pypi(pluggy)
 BuildRequires : pypi(py)
-BuildRequires : pypi(pytest)
 BuildRequires : pypi(setuptools)
-BuildRequires : pypi(tox)
-BuildRequires : pypi(virtualenv)
 BuildRequires : pypi(wheel)
+BuildRequires : pypi-pluggy
+BuildRequires : pypi-pytest
+BuildRequires : pypi-tox
+BuildRequires : pypi-virtualenv
 
 %description
 [![Donate via PayPal][donate-image]][donate-link]
@@ -29,6 +30,14 @@ BuildRequires : pypi(wheel)
 [![PyPI - Python Version][python-image]][pypi-link]
 ![License][license-image-mit]
 # MkDocs Material Extensions
+
+%package license
+Summary: license components for the pypi-mkdocs_material_extensions package.
+Group: Default
+
+%description license
+license components for the pypi-mkdocs_material_extensions package.
+
 
 %package python
 Summary: python components for the pypi-mkdocs_material_extensions package.
@@ -58,7 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641567943
+export SOURCE_DATE_EPOCH=1649787313
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -73,6 +82,8 @@ python3 -m build --wheel --skip-dependency-check --no-isolation
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/pypi-mkdocs_material_extensions
+cp %{_builddir}/mkdocs-material-extensions-1.0.3/LICENSE.md %{buildroot}/usr/share/package-licenses/pypi-mkdocs_material_extensions/ac8ff3b5d769836bad7805767233827f74386d0a
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -80,6 +91,10 @@ echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/pypi-mkdocs_material_extensions/ac8ff3b5d769836bad7805767233827f74386d0a
 
 %files python
 %defattr(-,root,root,-)
