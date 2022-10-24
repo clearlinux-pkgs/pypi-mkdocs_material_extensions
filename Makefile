@@ -1,5 +1,5 @@
 PKG_NAME := pypi-mkdocs_material_extensions
-URL = https://files.pythonhosted.org/packages/c1/6f/20b60ac8b314fd080dbab77b7a70ac3a283641a23914cb2346178875f501/mkdocs-material-extensions-1.0.3.tar.gz
+URL = https://files.pythonhosted.org/packages/7c/60/60b7767c99e81326892c49bd80735952dab128e7bca7e903d9fa5accd00e/mkdocs_material_extensions-1.1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
