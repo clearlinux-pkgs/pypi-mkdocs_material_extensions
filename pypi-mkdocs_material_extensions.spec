@@ -4,7 +4,7 @@
 #
 Name     : pypi-mkdocs_material_extensions
 Version  : 1.1.1
-Release  : 13
+Release  : 14
 URL      : https://files.pythonhosted.org/packages/cd/3f/e5e3c9bfbb42e4cb661f71bcec787ae6bdf4a161b8c4bb68fd7d991c436c/mkdocs_material_extensions-1.1.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/cd/3f/e5e3c9bfbb42e4cb661f71bcec787ae6bdf4a161b8c4bb68fd7d991c436c/mkdocs_material_extensions-1.1.1.tar.gz
 Summary  : Extension pack for Python Markdown and MkDocs Material.
